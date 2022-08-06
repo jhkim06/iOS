@@ -18,8 +18,14 @@ class LocationProvider: NSObject,
             dayEntries = DayEntriesCalculator.dayEntries(from: regionUpdates)
         }
     }
+    var max: TimeInterval = 1
     //var dayEntries: [DayEntry] = []
-    @Published var dayEntries: [DayEntry] = []
+    @Published var dayEntries: [DayEntry] = [] {
+        didSet {
+            max = dayEntries.reduce(1.0, {result, nextDayEntry in Swift.max(result, nextDayEntry.duration)})
+        }
+    }
+    @Published var wrongAuthorization = false
     
     override init() {
         locationManager = CLLocationManager()
@@ -39,7 +45,7 @@ class LocationProvider: NSObject,
         case .notDetermined:
             printLog("notDetermined")
         default:
-            break
+            wrongAuthorization = true
         }
     }
     func setHome() {
