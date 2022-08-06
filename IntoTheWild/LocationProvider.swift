@@ -35,9 +35,28 @@ class LocationProvider: NSObject,
     func setHome() {
         locationManager.requestLocation()
     }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
+        printLog("locationManager didFailWithError: \(error)")
+    }
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations:[CLLocation]){
         guard let location = locations.last else {return}
         printLog("location: \(location)")
+        
+        let region = CLCircularRegion(center: location.coordinate,
+                                      radius: 10, // 10 m
+        identifier: "home")
+        
+        manager.startMonitoring(for: region)
+    }
+    func locationManager(_ manager: CLLocationManager,
+                         didEnterRegion region: CLRegion){
+        printLog("didEnterRegion: \(String(describing: region))")
+    }
+    func locationManager(_ manager: CLLocationManager,
+                         didExitRegion region: CLRegion) {
+        printLog("didExitRegion: \(String(describing: region))")
     }
 }
