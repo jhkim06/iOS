@@ -27,15 +27,28 @@ struct DayEntryView: View {
             }
             Text(String(self.weekday.first ?? " "))
         }
-        }
+        }.accessibilityElement(children: .ignore).accessibility(label: Text(voiceOverGroupString(for: duration)))
     }
     
-    func durationString(from duration: TimeInterval) -> String {
+    func durationString(from duration: TimeInterval, forVoiceOver: Bool = false) -> String {
+        
+        if duration < 1 {
+            return "no time outside"
+        }
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
-        formatter.unitsStyle = .abbreviated
+        
+        if forVoiceOver {
+            formatter.unitsStyle = .full
+        }else {
+            formatter.unitsStyle = .abbreviated
+        }
         
         return formatter.string(from: duration) ?? ""
+    }
+    func voiceOverGroupString(for duration: TimeInterval)-> String{
+        let duration = durationString(from: duration, forVoiceOver: true)
+        return "\(duration) on \(weekday)"
     }
 }
 
