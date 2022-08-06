@@ -13,6 +13,9 @@
 		0589DAE1289E558B00C6ABFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589DADF289E558B00C6ABFA /* Main.storyboard */; };
 		0589DAE3289E558D00C6ABFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0589DAE2289E558D00C6ABFA /* Assets.xcassets */; };
 		0589DAE6289E558D00C6ABFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589DAE4289E558D00C6ABFA /* LaunchScreen.storyboard */; };
+		0589DAEE289E55B300C6ABFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589DAED289E55B300C6ABFA /* ContentView.swift */; };
+		0589DAF1289E55FC00C6ABFA /* LogStore in Frameworks */ = {isa = PBXBuildFile; productRef = 0589DAF0289E55FC00C6ABFA /* LogStore */; };
+		0589DAF3289E56BE00C6ABFA /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589DAF2289E56BE00C6ABFA /* LocationProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,8 @@
 		0589DAE2289E558D00C6ABFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0589DAE5289E558D00C6ABFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0589DAE7289E558D00C6ABFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0589DAED289E55B300C6ABFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0589DAF2289E56BE00C6ABFA /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0589DAF1289E55FC00C6ABFA /* LogStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +64,9 @@
 			children = (
 				0589DAD9289E558B00C6ABFA /* AppDelegate.swift */,
 				0589DADB289E558B00C6ABFA /* SceneDelegate.swift */,
+				0589DAF2289E56BE00C6ABFA /* LocationProvider.swift */,
 				0589DADD289E558B00C6ABFA /* ViewController.swift */,
+				0589DAED289E55B300C6ABFA /* ContentView.swift */,
 				0589DADF289E558B00C6ABFA /* Main.storyboard */,
 				0589DAE2289E558D00C6ABFA /* Assets.xcassets */,
 				0589DAE4289E558D00C6ABFA /* LaunchScreen.storyboard */,
@@ -83,6 +91,9 @@
 			dependencies = (
 			);
 			name = IntoTheWild;
+			packageProductDependencies = (
+				0589DAF0289E55FC00C6ABFA /* LogStore */,
+			);
 			productName = IntoTheWild;
 			productReference = 0589DAD6289E558B00C6ABFA /* IntoTheWild.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 0589DACD289E558B00C6ABFA;
+			packageReferences = (
+				0589DAEF289E55FC00C6ABFA /* XCRemoteSwiftPackageReference "LogStore2" */,
+			);
 			productRefGroup = 0589DAD7289E558B00C6ABFA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +154,9 @@
 			files = (
 				0589DADE289E558B00C6ABFA /* ViewController.swift in Sources */,
 				0589DADA289E558B00C6ABFA /* AppDelegate.swift in Sources */,
+				0589DAEE289E55B300C6ABFA /* ContentView.swift in Sources */,
 				0589DADC289E558B00C6ABFA /* SceneDelegate.swift in Sources */,
+				0589DAF3289E56BE00C6ABFA /* LocationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0589DAEF289E55FC00C6ABFA /* XCRemoteSwiftPackageReference "LogStore2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dasdom/LogStore2.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0589DAF0289E55FC00C6ABFA /* LogStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0589DAEF289E55FC00C6ABFA /* XCRemoteSwiftPackageReference "LogStore2" */;
+			productName = LogStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0589DACE289E558B00C6ABFA /* Project object */;
 }
