@@ -12,10 +12,13 @@ import LogStore
 class LocationProvider: NSObject,
                         CLLocationManagerDelegate {
     let locationManager: CLLocationManager
+    var regionUpdates: [RegionUpdate] = []
+    
     override init() {
         locationManager = CLLocationManager()
         
         super.init()
+        loadRegionUpdates()
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -54,9 +57,44 @@ class LocationProvider: NSObject,
     func locationManager(_ manager: CLLocationManager,
                          didEnterRegion region: CLRegion){
         printLog("didEnterRegion: \(String(describing: region))")
+        addRegionUpdate(type: .enter)
     }
     func locationManager(_ manager: CLLocationManager,
                          didExitRegion region: CLRegion) {
         printLog("didExitRegion: \(String(describing: region))")
+        addRegionUpdate(type: .exit)
     }
+    
+    // update regionUpdates
+    func addRegionUpdate(type: UpdateType) {
+        
+        let lastUpdateType = regionUpdates.last?.updateType
+        if type != lastUpdateType {
+            // where come the date?
+            let regionUpdate = RegionUpdate(date: Date(), updateType: type)
+            regionUpdates.append(regionUpdate)
+            
+            writeRegionUpdates()
+        }
+    }
+    
+    func writeRegionUpdates() {
+        do {
+            let data = try JSONEncoder().encode(regionUpdates)
+            try data.write(to: FileManager.regionUpdatesDataPath(), options: .atomic)
+        } catch {
+            printLog("error: \(error)")
+        }
+    }
+    
+    func loadRegionUpdates() {
+        do {
+            let data = try Data(contentsOf: FileManager.regionUpdatesDataPath())
+            regionUpdates = try JSONDecoder().decode([RegionUpdate].self,
+                                                     from: data)
+        } catch {
+            printLog("error: \(error)")
+        }
+    }
+    
 }

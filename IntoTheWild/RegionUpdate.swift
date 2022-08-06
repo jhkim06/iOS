@@ -8,6 +8,6 @@
 import Foundation
 
 struct RegionUpdate : Codable {
-    let data: Date
+    let date: Date
     let updateType: UpdateType
 }
