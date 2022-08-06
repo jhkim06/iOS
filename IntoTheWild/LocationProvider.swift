@@ -12,7 +12,12 @@ import LogStore
 class LocationProvider: NSObject,
                         CLLocationManagerDelegate {
     let locationManager: CLLocationManager
-    var regionUpdates: [RegionUpdate] = []
+    var regionUpdates: [RegionUpdate] = [] {
+        didSet {
+            dayEntries = DayEntriesCalculator.dayEntries(from: regionUpdates)
+        }
+    }
+    var dayEntries: [DayEntry] = []
     
     override init() {
         locationManager = CLLocationManager()
