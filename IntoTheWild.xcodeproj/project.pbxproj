@@ -21,6 +21,7 @@
 		0589DAEE289E55B300C6ABFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589DAED289E55B300C6ABFA /* ContentView.swift */; };
 		0589DAF1289E55FC00C6ABFA /* LogStore in Frameworks */ = {isa = PBXBuildFile; productRef = 0589DAF0289E55FC00C6ABFA /* LogStore */; };
 		0589DAF3289E56BE00C6ABFA /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589DAF2289E56BE00C6ABFA /* LocationProvider.swift */; };
+		05B4518E289ED7EF00E9D552 /* DayEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4518D289ED7EF00E9D552 /* DayEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		0589DAE7289E558D00C6ABFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0589DAED289E55B300C6ABFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0589DAF2289E56BE00C6ABFA /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		05B4518D289ED7EF00E9D552 /* DayEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				0582624F289EC034007F2DCB /* FileManagerExtension.swift */,
 				0589DADD289E558B00C6ABFA /* ViewController.swift */,
 				0589DAED289E55B300C6ABFA /* ContentView.swift */,
+				05B4518D289ED7EF00E9D552 /* DayEntryView.swift */,
 				0589DADF289E558B00C6ABFA /* Main.storyboard */,
 				0589DAE2289E558D00C6ABFA /* Assets.xcassets */,
 				0589DAE4289E558D00C6ABFA /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 				05826254289EC94F007F2DCB /* DayEntriesCalculator.swift in Sources */,
 				05826250289EC034007F2DCB /* FileManagerExtension.swift in Sources */,
 				05826252289EC828007F2DCB /* DayEntry.swift in Sources */,
+				05B4518E289ED7EF00E9D552 /* DayEntryView.swift in Sources */,
 				0589DADC289E558B00C6ABFA /* SceneDelegate.swift in Sources */,
 				0589DAF3289E56BE00C6ABFA /* LocationProvider.swift in Sources */,
 			);

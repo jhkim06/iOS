@@ -10,14 +10,16 @@ import CoreLocation
 import LogStore
 
 class LocationProvider: NSObject,
-                        CLLocationManagerDelegate {
+                        CLLocationManagerDelegate,
+                        ObservableObject {
     let locationManager: CLLocationManager
     var regionUpdates: [RegionUpdate] = [] {
         didSet {
             dayEntries = DayEntriesCalculator.dayEntries(from: regionUpdates)
         }
     }
-    var dayEntries: [DayEntry] = []
+    //var dayEntries: [DayEntry] = []
+    @Published var dayEntries: [DayEntry] = []
     
     override init() {
         locationManager = CLLocationManager()

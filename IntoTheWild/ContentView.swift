@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     private let locationProvider = LocationProvider()
+    //@EnvironmentObject private var locationProvider: LocationProvider
     
     var body: some View {
         VStack{
